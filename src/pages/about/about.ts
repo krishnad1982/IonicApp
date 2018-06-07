@@ -1,15 +1,17 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, ViewController } from 'ionic-angular';
+import { NavController, NavParams, ModalController } from 'ionic-angular';
+import { ContactPage } from '../contact/contact';
 
 @Component({
   selector: 'page-about',
   templateUrl: 'about.html'
 })
 export class AboutPage {
-  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController) {
 
   }
-  closeModal(){
-    this.viewCtrl.dismiss();
+  openModal() {
+    const myModal = this.modalCtrl.create(ContactPage);
+    myModal.present();
   }
 }

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, LoadingController, ModalController } from 'ionic-angular';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { AboutPage } from '../about/about';
+import { ContactPage } from '../contact/contact';
 
 
 interface INews {
@@ -29,7 +29,7 @@ export class HomePage {
   }
 
   openModal() {
-    const myModal = this.modalCtrl.create(AboutPage);
+    const myModal = this.modalCtrl.create(ContactPage);
     myModal.present();
   }
 
@@ -54,7 +54,11 @@ export class HomePage {
     const val = ev.target.value;
     if (val && val.trim() != '') {
       this.news = this.news.filter((item) => {
-        return (item.toLowercase().indexOf(val.toLowercase()) > -1);
+        for(let property in item){
+          console.log(item[property]);
+        }
+        
+        //return (item.articles.title.toLowerCase().indexOf(val.articles.title.toLowerCase()) > -1);
       })
     }
   }

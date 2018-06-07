@@ -4,23 +4,32 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>About</ion-title>
+    <ion-buttons end>
+      <button ion-button secondary menuToggle (click)="openModal()">
+        <ion-icon name="contact"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
-  <button ion-button block (click)="closeModal()">Close</button>
-  <p> Since 1922 when the first Australian standards and technical documents were created to assist with the successful building
-    of Sydney's iconic Harbor Bridge, our experts have helped companies transform the way they manage, approach and leverage
-    risk. </p>
-  <p>Today's world is vastly different, and far more complex. Globalization, digitization and advances in technology have
-    dramatically changed the way companies operate as well as the sheer velocity and number of risks faced. More than
-    ever before, these risks have the ability to severely impact business operations, resilience and brand reputation.
-    </p>
-  <p>Managing risk proactively is now a strategic imperative, and taking an integrated approach to managing risk and compliance
-    has never been more important.</p>
-  <p>We help companies take a more integrated approach to managing risk. Our world-class solutions and renowned team of
-    experts provide advice at every step ensuring companies have the information they need to make the decisions required
-    to protect and grow their businesses and their reputation. </p>
-  <p>We have global reach with locations across Europe, the Middle East, Africa, the Americas, Asia and the Pacific, powered
-    by local expertise and knowhow.</p>
+  <ion-card>
+    <ion-card-content>
+      <p> Since 1922 when the first Australian standards and technical documents were created to assist with the successful building
+        of Sydney's iconic Harbor Bridge, our experts have helped companies transform the way they manage, approach and leverage
+        risk. </p>
+      <p>Today's world is vastly different, and far more complex. Globalization, digitization and advances in technology have
+        dramatically changed the way companies operate as well as the sheer velocity and number of risks faced. More than
+        ever before, these risks have the ability to severely impact business operations, resilience and brand reputation.
+      </p>
+      <p>Managing risk proactively is now a strategic imperative, and taking an integrated approach to managing risk and compliance
+        has never been more important.</p>
+      <p>We help companies take a more integrated approach to managing risk. Our world-class solutions and renowned team of
+        experts provide advice at every step ensuring companies have the information they need to make the decisions required
+        to protect and grow their businesses and their reputation. </p>
+      <p>We have global reach with locations across Europe, the Middle East, Africa, the Americas, Asia and the Pacific, powered
+        by local expertise and knowhow.</p>
+    </ion-card-content>
+  </ion-card>
+
 </ion-content>
