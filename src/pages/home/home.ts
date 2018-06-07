@@ -22,7 +22,7 @@ export class HomePage {
   presentLoading() {
     const loader = this.loadingCtrl.create({
       content: 'Please wait...',
-      duration: 3000,
+      duration: 2000,
       dismissOnPageChange: true
     });
     loader.present();
