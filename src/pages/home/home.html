@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h3>Sai Global</h3>
+
+  <ion-searchbar (ionInput)="getNewsbyFilter($event)"></ion-searchbar>
+  <ion-card *ngFor="let data of news">
+    <img src={{data.urlToImage}}/>
+    <ion-card-content>
+      <ion-card-title>
+        {{ data.title | limitTo:10 }}
+      </ion-card-title>
+      <p>
+        {{data.description}}
+      </p>
+    </ion-card-content>
+  </ion-card>
+
+  <button ion-button secondary menuToggle (click)="openModal()">Who We Are</button>
+</ion-content>
