@@ -15,17 +15,22 @@ interface INews {
 export class HomePage {
   serachQuery: string = '';
   news: any;
+  loader: any;
   constructor(public navCtrl: NavController, private httpClient: HttpClient, public loadingCtrl: LoadingController, public modalCtrl: ModalController) {
     this.getNews();
   }
 
   presentLoading() {
-    const loader = this.loadingCtrl.create({
+    this.loader = this.loadingCtrl.create({
       content: 'Please wait...',
       duration: 2000,
       dismissOnPageChange: true
     });
-    loader.present();
+    this.loader.present();
+  }
+
+  dismissLoader() {
+    this.loader.dismiss();
   }
 
   openModal() {
@@ -34,10 +39,11 @@ export class HomePage {
   }
 
   getNews() {
+    this.presentLoading();
     this.httpClient.get<INews>('http://newsapi.org/v2/top-headlines?country=au&category=business&apiKey=364a811e3dfc495b9cdfb4f4a3e70112').
       subscribe(data => {
-        this.presentLoading();
         this.news = data.articles;
+        this.dismissLoader();
       },
         (err: HttpErrorResponse) => {
           if (err.error instanceof Error) {
@@ -46,6 +52,7 @@ export class HomePage {
           else {
             console.log('Server-side error occured');
           }
+          this.dismissLoader();
         }
       );
   }
@@ -54,12 +61,11 @@ export class HomePage {
     const val = ev.target.value;
     if (val && val.trim() != '') {
       this.news = this.news.filter((item) => {
-        for(let property in item){
-          console.log(item[property]);
-        }
-        
-        //return (item.articles.title.toLowerCase().indexOf(val.articles.title.toLowerCase()) > -1);
+        return (item.title.toLowerCase().indexOf(val.toLowerCase()) > -1);
       })
+    }
+    else {
+      return this.getNews();
     }
   }
 }

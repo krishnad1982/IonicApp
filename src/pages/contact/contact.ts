@@ -17,4 +17,9 @@ export class ContactPage {
     this.viewCtrl.dismiss();
     //this.navCtrl.setRoot(HomePage);
   }
+
+  submitPage(){
+    this.navCtrl.setRoot(HomePage);
+    // this.navCtrl.push(HomePage);
+  }
 }
