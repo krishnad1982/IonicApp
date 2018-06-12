@@ -1,1 +1,2 @@
-﻿ionic cordova resources
+﻿npm i
+ionic cordova resources
