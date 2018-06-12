@@ -1,2 +1,2 @@
-﻿npm i
-ionic cordova resources
+﻿ionic cordova build android
+cordova build –release android
